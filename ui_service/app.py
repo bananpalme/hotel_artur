@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 
-GATEWAY_URL = "http://localhost:5000"
+GATEWAY_URL = "http://api_gateway:5000"
 
 st.title("Hotel Artur - Employee & Work Management")
 

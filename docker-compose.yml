@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  employee_service:
+    build: ./employee_service
+    container_name: employee_service
+    ports:
+      - "5001:5001"
+
+  work_service:
+    build: ./work_service
+    container_name: work_service
+    ports:
+      - "5002:5002"
+
+  api_gateway:
+    build: ./api_gateway
+    container_name: api_gateway
+    ports:
+      - "5000:5000"
+    depends_on:
+      - employee_service
+      - work_service
+    environment:
+      EMPLOYEE_SERVICE_URL: http://employee_service:5001
+      WORK_SERVICE_URL: http://work_service:5002
+
+  ui_service:
+    build: ./ui_service
+    container_name: ui_service
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api_gateway
+    environment:
+      GATEWAY_URL: http://api_gateway:5000
