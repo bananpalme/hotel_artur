@@ -14,14 +14,25 @@ http://localhost:5001
 
 ### 1. GET `/employees`
 
-## Response Example
+### Response example
 
 ```JSON
-    [
-        {
-            "id": 1,
-            "name": "John",
-            "department": "cleaning"
-        }
-    ]
+[
+    {
+        "id": 1,
+        "name": "John",
+        "department": "cleaning"
+    }
+]
+```
+
+### 2. POST `/employees`
+
+### Request body example
+
+```JSON
+{
+  "name": "Alice",
+  "department": "reception"
+}
 ```
